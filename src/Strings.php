@@ -11,7 +11,7 @@ class Strings
      * @param string $str
      * @return boolean
      */
-    function is_uuid(string $str) : bool
+    public static function is_uuid(string $str) : bool
     {
         if (strlen($str) != 36) {
             return false;
