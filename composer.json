@@ -1,0 +1,18 @@
+{
+    "name": "mapkyca/php-utils",
+    "description": "Misc. PHP utilities",
+    "type": "library",
+    "license": "GPL-2.0",
+    "autoload": {
+        "psr-4": {
+            "Mapkyca\\PhpUtils\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marcus Povey",
+            "email": "marcus@marcus-povey.co.uk"
+        }
+    ],
+    "require": {}
+}
