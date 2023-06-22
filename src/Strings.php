@@ -29,4 +29,18 @@ class Strings
 
         return false;
     }
+
+    /**
+     * Return whether a string starts and ends with a particular character
+     *
+     * @param string $string
+     * @param string $char
+     * @return boolean
+     */
+    static function startsAndEndsWithChar(string $string, string $char) : bool {
+        $startsWithChar = (substr($string, 0, 1) === $char);
+        $endsWithChar = (substr($string, -1) === $char);
+        
+        return ($startsWithChar && $endsWithChar);
+    }
 }
