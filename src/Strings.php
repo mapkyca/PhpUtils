@@ -37,7 +37,7 @@ class Strings
      * @param string $char
      * @return boolean
      */
-    static function startsAndEndsWithChar(string $string, string $char) : bool {
+    public static function startsAndEndsWithChar(string $string, string $char) : bool {
         $startsWithChar = (substr($string, 0, 1) === $char);
         $endsWithChar = (substr($string, -1) === $char);
         
