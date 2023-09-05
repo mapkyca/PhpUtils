@@ -11,7 +11,7 @@ class Strings
      * @param string $str
      * @return boolean
      */
-    public static function is_uuid(string $str) : bool
+    public static function is_uuid(string $str): bool
     {
         if (strlen($str) != 36) {
             return false;
@@ -24,7 +24,6 @@ class Strings
             if (preg_match($UUID, $str) === 1) {
                 return true;
             }
-
         }
 
         return false;
@@ -37,10 +36,36 @@ class Strings
      * @param string $char
      * @return boolean
      */
-    public static function startsAndEndsWithChar(string $string, string $char) : bool {
+    public static function startsAndEndsWithChar(string $string, string $char): bool
+    {
         $startsWithChar = (substr($string, 0, 1) === $char);
         $endsWithChar = (substr($string, -1) === $char);
-        
+
         return ($startsWithChar && $endsWithChar);
+    }
+
+    /**
+     * Tokenise a string based on first letter in a string where words are separated by an underscore.
+     *
+     * @param [type] $inputString
+     * @return void
+     */
+    function firstLettersSeparatedByUnderscore($inputString)
+    {
+        // Split the input string into words based on underscores
+        $words = explode('_', $inputString);
+        $firstLetters = [];
+
+        // Loop through each word and extract its first letter
+        foreach ($words as $word) {
+
+            // Check if the word is not empty
+            if (!empty($word)) {
+                // Extract the first letter
+                $firstLetters[] = substr($word, 0, 1);
+            }
+        }
+
+        return implode('', $firstLetters);
     }
 }
