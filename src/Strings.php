@@ -50,7 +50,7 @@ class Strings
      * @param [type] $inputString
      * @return void
      */
-    function firstLettersSeparatedByUnderscore($inputString)
+    public static function firstLettersSeparatedByUnderscore($inputString)
     {
         // Split the input string into words based on underscores
         $words = explode('_', $inputString);
