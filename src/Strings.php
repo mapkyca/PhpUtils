@@ -30,6 +30,22 @@ class Strings
     }
 
     /**
+     * Encode a url to something which can be put in an email
+     *
+     * @param string $url
+     * @return string
+     */
+    public static function encodeUrlForEmail(string $url) :string {
+        // Use rawurlencode to encode the URL
+        $encodedUrl = rawurlencode($url);
+    
+        // Since rawurlencode encodes all characters, decode only the / character
+        $encodedUrl = str_replace('%2F', '/', $encodedUrl);
+    
+        return $encodedUrl;
+    }
+
+    /**
      * Return whether a string starts and ends with a particular character
      *
      * @param string $string
