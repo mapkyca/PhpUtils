@@ -41,6 +41,7 @@ class Strings
     
         // Since rawurlencode encodes all characters, decode only the / character
         $encodedUrl = str_replace('%2F', '/', $encodedUrl);
+        $encodedUrl = str_replace('%3A', ':', $encodedUrl);
     
         return $encodedUrl;
     }
