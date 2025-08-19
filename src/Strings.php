@@ -85,4 +85,41 @@ class Strings
 
         return implode('', $firstLetters);
     }
+
+    /**
+     * Convert HTML content to plain text, ignoring script and style elements.
+     *
+     * @param string $html
+     * @return string
+     */
+    public static function textFromHtml(string $html): string
+    {
+        $html = trim($html);
+        if (empty($html)) {
+            return '';
+        }
+
+        // Create a new DOMDocument
+        $doc = new DOMDocument();
+
+        // Load HTML (suppress warnings for malformed HTML)
+        libxml_use_internal_errors(true);
+        $doc->loadHTML($html);
+        libxml_clear_errors();
+
+        // Extract all text
+        $xpath = new DOMXPath($doc);
+        $textNodes = $xpath->query('//text()');
+
+        $textContent = '';
+        foreach ($textNodes as $node) {
+            // Ignore script and style content
+            if (!in_array($node->parentNode->nodeName, ['script', 'style'])) {
+                $textContent .= strtolower($node->nodeValue) . ' ';
+            }
+        }
+
+        return $textContent;
+        
+    }
 }
