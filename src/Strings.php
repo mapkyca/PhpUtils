@@ -2,6 +2,9 @@
 
 namespace Mapkyca\PhpUtils;
 
+use DOMDocument;
+use DOMXPath;
+
 class Strings
 {
 
